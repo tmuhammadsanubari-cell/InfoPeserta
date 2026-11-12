@@ -91,7 +91,9 @@ function url(string $path = '/'): string
 function asset(string $path): string
 {
     $path = ltrim($path, '/');
-    $file = BASE_PATH . '/public/' . $path;
+    // Folder index.php = folder publik, walau public/ dipindah ke public_html/ (PRD 4.7 langkah 4).
+    $publicDir = isset($_SERVER['SCRIPT_FILENAME']) ? dirname((string) $_SERVER['SCRIPT_FILENAME']) : BASE_PATH . '/public';
+    $file = $publicDir . '/' . $path;
     $version = is_file($file) ? (string) filemtime($file) : '';
     return url($path) . ($version !== '' ? '?v=' . $version : '');
 }

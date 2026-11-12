@@ -3,7 +3,7 @@
 
 Options -Indexes
 
-<FilesMatch "^\.env|\.sql$|\.md$|\.log$">
+<FilesMatch "^\.(env|ht)|\.sql$|\.md$|\.log$|\.zip$">
     Require all denied
 </FilesMatch>
 

@@ -450,7 +450,7 @@ strong { font-weight: 600; }
   bottom: 0;
   z-index: 20;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--color-surface);

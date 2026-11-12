@@ -49,12 +49,16 @@ Urutan kerja MVP (target 5 hari, lihat PRD bagian 4.9). Centang `[x]` setelah tu
 
 ## Hari 5 — Rapikan dan siapkan demo
 
-- [ ] Uji tampilan di 360 px, 768 px, desktop
-- [ ] Uji semua acceptance criteria PRD bagian 2.2 satu per satu
-- [ ] Pastikan `.env`, `app/`, `database/`, `storage/` tidak bisa diakses dari browser
-- [ ] Lengkapi `README.md` (instalasi cPanel, ganti password admin)
-- [ ] Buat zip siap unggah (tanpa `.env`, tanpa log)
+- [x] Uji tampilan di 360 px, 768 px, desktop
+- [x] Uji semua acceptance criteria PRD bagian 2.2 satu per satu
+- [x] Pastikan `.env`, `app/`, `database/`, `storage/` tidak bisa diakses dari browser
+- [x] Lengkapi `README.md` (instalasi cPanel, ganti password admin)
+- [x] Buat zip siap unggah (tanpa `.env`, tanpa log)
 
 ## Ide di luar scope (catat saja, jangan dikerjakan)
 
--
+- Status kegiatan di timeline ("Sedang berlangsung", "Selesai") berdasarkan jam saat ini. Ada di mockup Stitch.
+- Mode offline (PWA + service worker) agar jadwal tetap terbuka tanpa sinyal. Ada di mockup Stitch.
+- Admin menambah peserta secara manual dari panel (tombol "Tambah Peserta" di mockup).
+- Kartu identitas/e-badge peserta dengan QR (terkait QR check-in yang di luar scope).
+- Pratinjau tampilan peserta langsung di form admin (mockup "Pratinjau Tampilan Peserta").

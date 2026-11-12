@@ -1,6 +1,11 @@
 # Front controller + cache aset statis. PRD: NFR-002, bagian 4.7.
 Options -Indexes
 
+# Tolak semua file tersembunyi (.htaccess, .env yang salah taruh, dll.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
@@ -21,8 +26,14 @@ Options -Indexes
     ExpiresActive On
     ExpiresByType text/css "access plus 7 days"
     ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType text/javascript "access plus 7 days"
     ExpiresByType image/svg+xml "access plus 30 days"
     ExpiresByType image/png "access plus 30 days"
+</IfModule>
+
+# Kompres HTML, CSS, dan JS agar cepat di jaringan seluler (NFR-002)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml
 </IfModule>
 
 <IfModule mod_headers.c>
