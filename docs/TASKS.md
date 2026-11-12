@@ -30,12 +30,12 @@ Urutan kerja MVP (target 5 hari, lihat PRD bagian 4.9). Centang `[x]` setelah tu
 
 ## Hari 3 — Admin inti
 
-- [ ] Model `Admin`, `LoginAttempt`; `app/Auth/AdminAuth.php` dengan rate limit dan timeout 2 jam
-- [ ] Login/logout admin dan layout admin (sidebar desktop, menu hamburger di HP)
-- [ ] Kelola hari dan kegiatan (PRD 2.2.5)
-- [ ] Kelola pengumuman (PRD 2.2.6)
-- [ ] Kelola info penting (PRD 2.2.6)
-- [ ] Cek: ubah jadwal di admin, langsung terlihat di `/info`
+- [x] Model `Admin`, `LoginAttempt`; `app/Auth/AdminAuth.php` dengan rate limit dan timeout 2 jam
+- [x] Login/logout admin dan layout admin (sidebar desktop, menu hamburger di HP)
+- [x] Kelola hari dan kegiatan (PRD 2.2.5)
+- [x] Kelola pengumuman (PRD 2.2.6)
+- [x] Kelola info penting (PRD 2.2.6)
+- [x] Cek: ubah jadwal di admin, langsung terlihat di `/info`
 
 ## Hari 4 — Admin lengkap
 

@@ -13,6 +13,7 @@ use InvalidArgumentException;
  *
  *   - static make(array $data, array $rules, array $labels = []): array — kembalikan array error per field (pesan Bahasa Indonesia)
  *   - Aturan: required, min:n, max:n, in:a,b, date (Y-m-d), time (H:i), color (#RRGGBB)
+ *   - Tambahan untuk form admin: integer (bilangan bulat ≥ 0), range:a,b (nilai angka a..b)
  *
  * Contoh:
  *   Validator::make($_POST, ['full_name' => 'required|min:3|max:100'], ['full_name' => 'Nama lengkap']);
@@ -81,6 +82,15 @@ final class Validator
                 return preg_match('/^([01]\d|2[0-3]):[0-5]\d(:[0-5]\d)?$/', $value)
                     ? null
                     : "$label harus berupa jam yang valid, contoh 08:30.";
+
+            case 'integer':
+                return ctype_digit($value) && strlen($value) <= 9 ? null : "$label harus berupa angka bulat.";
+
+            case 'range':
+                [$lo, $hi] = array_map('intval', explode(',', (string) $param) + [0, 0]);
+                return ctype_digit($value) && strlen($value) <= 9 && (int) $value >= $lo && (int) $value <= $hi
+                    ? null
+                    : "$label harus berupa angka $lo sampai $hi.";
 
             case 'color':
                 return preg_match('/^#[0-9a-f]{6}$/i', $value)

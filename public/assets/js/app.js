@@ -7,9 +7,7 @@
  *   - Accordion info penting: pakai <details> agar jalan tanpa JS (tidak perlu kode di sini)
  *   - Tombol dengan atribut data-confirm: window.confirm sebelum submit
  *   - Class "js" di <html> (juga dipasang inline di layout agar tidak berkedip)
- *
- * TODO (TASKS Hari 3):
- *   - Menu hamburger admin
+ *   - Menu hamburger admin: [data-nav-toggle] membuka/menutup laci sidebar (class nav-open di <body>)
  */
 (function () {
   'use strict';
@@ -141,6 +139,32 @@
     var activeDay = document.querySelector('[data-day].is-active');
     if (activeDay) { centerPill(activeDay, false); }
   }
+
+  // ---------------------------------------------------------------------
+  // Menu hamburger admin
+  // ---------------------------------------------------------------------
+  var navToggles = document.querySelectorAll('[data-nav-toggle]');
+
+  function setNav(open) {
+    document.body.classList.toggle('nav-open', open);
+    each(navToggles, function (btn) {
+      if (btn.hasAttribute('aria-expanded')) {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    });
+  }
+
+  each(navToggles, function (btn) {
+    btn.addEventListener('click', function () {
+      setNav(!document.body.classList.contains('nav-open'));
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
+      setNav(false);
+    }
+  });
 
   // ---------------------------------------------------------------------
   // Konfirmasi sebelum aksi berbahaya: <button data-confirm="Hapus hari ini?">
