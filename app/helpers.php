@@ -208,6 +208,37 @@ function format_date_id(string $date, bool $withDay = true): string
     return $withDay ? ID_DAYS[(int) date('w', $ts)] . ', ' . $text : $text;
 }
 
+const ID_MONTHS_SHORT = [
+    1 => 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des',
+];
+
+/** '2026-12-20' → '20 Des' */
+function format_date_short_id(string $date): string
+{
+    $ts = strtotime($date);
+    return $ts === false ? $date : (int) date('j', $ts) . ' ' . ID_MONTHS_SHORT[(int) date('n', $ts)];
+}
+
+/** '06:30:00' → '06.30' (penulisan jam bahasa Indonesia) */
+function format_time_id(?string $time): string
+{
+    if ($time === null || $time === '') {
+        return '';
+    }
+    return str_replace(':', '.', substr($time, 0, 5));
+}
+
+/** '2026-12-21 06:10:00' → '21 Des, 06.10'; tahun ditambahkan jika bukan tahun ini. */
+function format_datetime_id(string $datetime): string
+{
+    $ts = strtotime($datetime);
+    if ($ts === false) {
+        return $datetime;
+    }
+    $year = date('Y', $ts) !== date('Y') ? ' ' . date('Y', $ts) : '';
+    return format_date_short_id(date('Y-m-d', $ts)) . $year . ', ' . date('H.i', $ts);
+}
+
 /**
  * Rentang tanggal kegiatan, ringkas jika bulan/tahun sama.
  * Contoh: '20–22 Desember 2026', '30 Desember 2026 – 2 Januari 2027'.
@@ -250,6 +281,14 @@ function icon(string $name, string $class = 'icon'): string
         'arrow-left'   => '<path d="M19 12H5M12 19l-7-7 7-7"/>',
         'log-in'       => '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5M15 12H3"/>',
         'refresh'      => '<path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"/><path d="M21 3v5h-5"/>',
+        'log-out'      => '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',
+        'clock'        => '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+        'pin'          => '<path d="M12 17v5"/><path d="M9 10.8a2 2 0 0 1-1.1 1.8l-1.8.9A2 2 0 0 0 5 15.2v.8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.8a2 2 0 0 0-1.1-1.8l-1.8-.9a2 2 0 0 1-1.1-1.8V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/>',
+        'chevron-down' => '<path d="m6 9 6 6 6-6"/>',
+        'navigation'   => '<path d="m3 11 19-9-9 19-2-8-8-2z"/>',
+        'alert-circle' => '<circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>',
+        'chat'         => '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/>',
+        'clipboard'    => '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14h6M9 18h4M9 10h6"/>',
         'phone'        => '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
     ];
 

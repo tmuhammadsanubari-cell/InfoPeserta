@@ -18,15 +18,15 @@ Urutan kerja MVP (target 5 hari, lihat PRD bagian 4.9). Centang `[x]` setelah tu
 
 ## Hari 2 — Alur peserta
 
-- [ ] Model `Department`, `Participant`, `ParticipantSession`
-- [ ] `app/Auth/ParticipantAuth.php`: login, cookie remember 30 hari, pulihkan sesi dari cookie, logout, `requireParticipant()`
-- [ ] Registrasi `/daftar` (GET/POST) sesuai PRD 2.2.1, termasuk kondisi registrasi ditutup
-- [ ] Masuk `/masuk` (GET/POST) dan keluar `/keluar` sesuai PRD 2.2.2
-- [ ] Model `ScheduleDay`, `ScheduleItem`, `Announcement`, `InfoSection`
-- [ ] Halaman `/info` sesuai PRD 2.2.3: tab hari (otomatis hari ini), itinerary, timeline kegiatan, link Maps, tab pengumuman (pinned di atas, titik baru 24 jam), tab info (accordion), bottom navigation
-- [ ] Tombol WhatsApp panitia (PRD 2.2.10)
-- [ ] `app.css` mobile-first lengkap untuk halaman peserta, `app.js` untuk tab dan accordion (tetap terbaca tanpa JS)
-- [ ] Cek: semua skenario peserta di `CLAUDE.md` bagian verifikasi
+- [x] Model `Department`, `Participant`, `ParticipantSession`
+- [x] `app/Auth/ParticipantAuth.php`: login, cookie remember 30 hari, pulihkan sesi dari cookie, logout, `requireParticipant()`
+- [x] Registrasi `/daftar` (GET/POST) sesuai PRD 2.2.1, termasuk kondisi registrasi ditutup
+- [x] Masuk `/masuk` (GET/POST) dan keluar `/keluar` sesuai PRD 2.2.2
+- [x] Model `ScheduleDay`, `ScheduleItem`, `Announcement`, `InfoSection`
+- [x] Halaman `/info` sesuai PRD 2.2.3: tab hari (otomatis hari ini), itinerary, timeline kegiatan, link Maps, tab pengumuman (pinned di atas, titik baru 24 jam), tab info (accordion), bottom navigation
+- [x] Tombol WhatsApp panitia (PRD 2.2.10)
+- [x] `app.css` mobile-first lengkap untuk halaman peserta, `app.js` untuk tab dan accordion (tetap terbaca tanpa JS)
+- [x] Cek: semua skenario peserta di `CLAUDE.md` bagian verifikasi
 
 ## Hari 3 — Admin inti
 

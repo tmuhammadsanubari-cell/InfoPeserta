@@ -30,6 +30,7 @@ if (!preg_match('/^#[0-9a-f]{6}$/i', (string) $primary)) {
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="<?= e($primary) ?>">
     <title><?= e($pageTitle) ?></title>
+    <script>document.documentElement.className += ' js';</script>
     <link rel="stylesheet" href="<?= e(asset('assets/css/app.css')) ?>">
     <style>:root{--color-primary:<?= e($primary) ?>}</style>
     <script src="<?= e(asset('assets/js/app.js')) ?>" defer></script>

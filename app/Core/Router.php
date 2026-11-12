@@ -115,9 +115,7 @@ final class Router
                 return;
 
             case 'participant':
-                if (ParticipantAuth::id() === null) {
-                    redirect('/');
-                }
+                ParticipantAuth::requireParticipant();
                 return;
 
             case 'admin':

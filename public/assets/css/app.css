@@ -49,8 +49,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, p, ul { margin: 0; }
-ul { padding: 0; list-style: none; }
+h1, h2, h3, h4, h5, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
 a { color: var(--color-primary); }
 img, svg { display: block; }
 strong { font-weight: 600; }
@@ -167,7 +167,390 @@ strong { font-weight: 600; }
 .error-page .muted { margin: 8px 0 24px; }
 .error-code { font-size: 56px; font-weight: 800; line-height: 1; color: var(--color-primary); }
 
+/* Header halaman form (daftar, masuk) */
+.page-header { display: flex; align-items: center; gap: 14px; }
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow);
+}
+.page-title { font-size: 22px; line-height: 1.25; font-weight: 700; }
+.page-subtitle { color: var(--color-muted); font-size: 14px; }
+.headline { font-size: 26px; line-height: 1.2; font-weight: 700; margin-bottom: 4px; }
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 15px;
+}
+.note .icon { color: var(--color-primary); }
+
+/* Halaman informasi: header */
+.page-info { padding-bottom: calc(var(--bottom-nav-height) + 88px + env(safe-area-inset-bottom)); }
+.page-info .flash-stack { padding-bottom: 16px; }
+
+.info-header {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: calc(16px + env(safe-area-inset-top)) 16px 20px;
+}
+.info-header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.info-header-text { min-width: 0; }
+.hello { font-size: 24px; line-height: 1.25; font-weight: 700; overflow-wrap: anywhere; }
+.event-line { font-size: 14px; opacity: .9; margin-top: 2px; }
+.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .16);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-logout:hover { background: rgba(255, 255, 255, .26); }
+
+.info-main { max-width: 480px; margin: 0 auto; padding: 16px; }
+
+/* Panel (Jadwal, Pengumuman, Info). Tanpa JS semua panel tampil berurutan. */
+.panel { scroll-margin-top: 16px; }
+.panel + .panel { margin-top: 32px; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.panel-head .panel-heading { margin-bottom: 0; }
+.panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.panel-heading .icon { color: var(--color-primary); }
+.panel-sub { margin: -6px 0 14px; font-size: 14px; }
+
+.js .panel:not(.is-active) { display: none; }
+.js .panel + .panel { margin-top: 0; }
+.js #jadwal-heading { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Tab hari: pill yang bisa digeser horizontal */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 -16px 16px;
+  padding: 10px 16px 4px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.day-tabs::-webkit-scrollbar { display: none; }
+.day-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 132px;
+  max-width: 200px;
+  min-height: var(--tap);
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+.day-tab.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.day-tab-label { font-weight: 600; font-size: 15px; white-space: nowrap; }
+.day-tab-title { font-size: 13px; opacity: .8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.today-badge {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.day { scroll-margin-top: 16px; }
+.day + .day { margin-top: 32px; }
+.js .day:not(.is-active) { display: none; }
+.js .day + .day { margin-top: 0; }
+
+/* Kartu itinerary */
+.itinerary-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.eyebrow { color: var(--color-primary); font-size: 13px; font-weight: 600; }
+.itinerary-title { font-size: 22px; line-height: 1.25; font-weight: 700; margin-top: 2px; }
+.route {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  font-size: 15px;
+}
+.route .icon { color: var(--color-primary); margin-top: 2px; }
+
+.section-label { font-size: 17px; font-weight: 600; margin: 20px 0 12px; }
+
+/* Timeline kegiatan */
+.timeline { position: relative; padding-left: 22px; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 6px;
+  width: 2px;
+  background: var(--color-border);
+}
+.timeline-item { position: relative; }
+.timeline-item + .timeline-item { margin-top: 12px; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -21px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+.activity-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.activity-title { font-size: 18px; line-height: 1.3; font-weight: 600; margin: 4px 0 0; }
+.activity-location { display: flex; align-items: flex-start; gap: 6px; margin-top: 4px; color: var(--color-muted); font-size: 15px; }
+.activity-location .icon { margin-top: 2px; }
+.activity-notes {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.maps-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* Pengumuman */
+.announcement.is-pinned { background: var(--color-primary-soft); }
+.announcement-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.announcement-time { display: inline-flex; align-items: center; gap: 4px; color: var(--color-muted); font-size: 13px; white-space: nowrap; }
+.announcement-title { font-size: 18px; line-height: 1.3; font-weight: 600; }
+.announcement-body { margin-top: 6px; overflow-wrap: anywhere; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge-primary { background: var(--color-primary); color: #fff; }
+.badge-new { background: #FEE2E2; color: var(--color-danger); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--color-border);
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Accordion info penting (<details>, berfungsi tanpa JS) */
+.card.accordion { padding: 0; }
+.accordion-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  list-style: none;
+}
+.accordion-summary::-webkit-details-marker { display: none; }
+.accordion-chevron { color: var(--color-muted); transition: transform .2s; }
+.accordion[open] .accordion-chevron { transform: rotate(180deg); }
+.accordion-body {
+  margin: 0 16px 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  overflow-wrap: anywhere;
+}
+
+.empty { color: var(--color-muted); text-align: center; padding: 24px 16px; }
+
+/* Bottom navigation */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-around;
+  height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 8px rgba(15, 23, 42, .05);
+}
+.bottom-nav-item {
+  display: flex;
+  flex: 1;
+  max-width: 160px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.bottom-nav-item.is-active { color: var(--color-primary); }
+.bottom-nav-icon { position: relative; }
+.dot {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--color-surface);
+  border-radius: 50%;
+  background: var(--color-danger);
+  box-sizing: content-box;
+}
+
+/* Tombol WhatsApp panitia: di atas bottom nav, tidak menutupi navigasi */
+.wa-fab {
+  position: fixed;
+  right: 16px;
+  bottom: calc(var(--bottom-nav-height) + 16px + env(safe-area-inset-bottom));
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, .35);
+}
+.wa-fab .icon { width: 26px; height: 26px; }
+@media (min-width: 560px) {
+  .wa-fab { right: calc(50% - 240px + 16px); }
+}
+
 /* ---------- 4. Komponen form ---------- */
+
+.form > * + * { margin-top: 18px; }
+.label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.req { color: var(--color-primary); font-size: 13px; font-weight: 500; }
+.input {
+  display: block;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 16px; /* cegah zoom otomatis di iOS */
+}
+.input::placeholder { color: #94A3B8; }
+.input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
+.input.is-invalid { border-color: var(--color-danger); background: #FEF2F2; }
+.input.is-invalid:focus { box-shadow: 0 0 0 3px #FECACA; }
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.select.is-invalid { background-color: #FEF2F2; }
+.helper { margin-top: 6px; color: var(--color-muted); font-size: 14px; }
+.field-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--color-danger);
+  font-size: 14px;
+  font-weight: 500;
+}
+.field-error .icon { margin-top: 1px; }
 
 .btn {
   display: inline-flex;
@@ -219,9 +602,31 @@ strong { font-weight: 600; }
 .alert-success { background: var(--color-primary-soft); border-color: #99F6E4; }
 .alert-error { background: #FEE2E2; border-color: #FECACA; color: #991B1B; }
 
+.alert-row { display: flex; align-items: flex-start; gap: 12px; }
+.alert-row > .icon { margin-top: 1px; }
+.alert-row p { margin: 2px 0 6px; color: var(--color-text); }
+
 /* ---------- 7. Utilitas ---------- */
 
 .muted { color: var(--color-muted); }
+.text-center { text-align: center; }
+.stack-sm > * + * { margin-top: 12px; }
+.icon-xs { width: 14px; height: 14px; }
+.link-strong { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; text-decoration: none; min-height: 32px; }
+.link-strong:hover { text-decoration: underline; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-/* TODO (TASKS Hari 2): header & tab halaman info, timeline, bottom nav, tombol WhatsApp, form lengkap. */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
 /* TODO (TASKS Hari 3–4): layout admin. */
