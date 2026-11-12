@@ -11,5 +11,6 @@
     <p class="error-code">404</p>
     <h1>Halaman tidak ditemukan</h1>
     <p class="muted">Alamat yang Anda buka tidak ada atau sudah dipindahkan.</p>
-    <a class="btn btn-primary" href="<?= e(url('/')) ?>"><?= icon('arrow-left', 'icon icon-sm') ?> Kembali ke beranda</a>
+    <?php $inAdmin = str_starts_with(current_path(), '/admin'); ?>
+    <a class="btn btn-primary" href="<?= e(url($inAdmin ? '/admin' : '/')) ?>"><?= icon('arrow-left', 'icon icon-sm') ?> <?= $inAdmin ? 'Kembali ke dashboard' : 'Kembali ke beranda' ?></a>
 </main>

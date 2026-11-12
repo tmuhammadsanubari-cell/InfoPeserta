@@ -39,13 +39,13 @@ Urutan kerja MVP (target 5 hari, lihat PRD bagian 4.9). Centang `[x]` setelah tu
 
 ## Hari 4 — Admin lengkap
 
-- [ ] Data peserta: tabel, cari, filter departemen, paginasi 50, hapus (PRD 2.2.7)
-- [ ] Ekspor CSV sesuai filter (BOM, delimiter, `="08..."`)
-- [ ] Kelola departemen dengan larangan hapus jika dipakai (PRD 2.2.8)
-- [ ] Pengaturan acara, termasuk warna utama via `--color-primary` (PRD 2.2.9)
-- [ ] Ganti password admin (PRD 2.2.4)
-- [ ] Dashboard ringkasan (PRD 2.2.11)
-- [ ] Halaman error 404, 419, 429, 500
+- [x] Data peserta: tabel, cari, filter departemen, paginasi 50, hapus (PRD 2.2.7)
+- [x] Ekspor CSV sesuai filter (BOM, delimiter, `="08..."`)
+- [x] Kelola departemen dengan larangan hapus jika dipakai (PRD 2.2.8)
+- [x] Pengaturan acara, termasuk warna utama via `--color-primary` (PRD 2.2.9)
+- [x] Ganti password admin (PRD 2.2.4)
+- [x] Dashboard ringkasan (PRD 2.2.11)
+- [x] Halaman error 404, 419, 429, 500
 
 ## Hari 5 — Rapikan dan siapkan demo
 

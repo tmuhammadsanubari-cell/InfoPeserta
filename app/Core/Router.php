@@ -41,6 +41,10 @@ final class Router
         $method = strtoupper($method) === 'HEAD' ? 'GET' : strtoupper($method);
         $path = $this->normalizePath($uri);
 
+        // Byte UTF-8 rusak diganti agar tidak memicu error database (utf8mb4) atau htmlspecialchars.
+        $_GET = self::cleanUtf8($_GET);
+        $_POST = self::cleanUtf8($_POST);
+
         foreach ($this->routes as $route) {
             if ($route['method'] !== $method || !preg_match($route['regex'], $path, $matches)) {
                 continue;
@@ -99,6 +103,16 @@ final class Router
 
         $path = '/' . trim($path, '/');
         return $path;
+    }
+
+    private static function cleanUtf8(array $input): array
+    {
+        array_walk_recursive($input, static function (mixed &$value): void {
+            if (is_string($value) && !mb_check_encoding($value, 'UTF-8')) {
+                $value = mb_convert_encoding($value, 'UTF-8', 'UTF-8');
+            }
+        });
+        return $input;
     }
 
     private function runMiddleware(string $middleware): void

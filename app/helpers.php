@@ -145,6 +145,16 @@ function normalize_phone(string $raw): ?string
     return $digits;
 }
 
+/** '081234567890' → '0812-3456-7890' (hanya untuk tampilan). */
+function format_phone(string $phone): string
+{
+    $digits = preg_replace('/\D+/', '', $phone) ?? '';
+    if (strlen($digits) < 8) {
+        return $phone;
+    }
+    return substr($digits, 0, 4) . '-' . substr($digits, 4, 4) . '-' . substr($digits, 8);
+}
+
 /**
  * 08xxx → 628xxx untuk tautan wa.me (PRD 2.2.10).
  */
@@ -307,7 +317,8 @@ function icon(string $name, string $class = 'icon'): string
         'megaphone'    => '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
         'info'         => '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
         'arrow-right'  => '<path d="M5 12h14M12 5l7 7-7 7"/>',
-        'arrow-left'   => '<path d="M19 12H5M12 19l-7-7 7-7"/>',
+        'arrow-down'   => '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/>',
+        'arrow-left'   =>'<path d="M19 12H5M12 19l-7-7 7-7"/>',
         'log-in'       => '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5M15 12H3"/>',
         'refresh'      => '<path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"/><path d="M21 3v5h-5"/>',
         'log-out'      => '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/>',

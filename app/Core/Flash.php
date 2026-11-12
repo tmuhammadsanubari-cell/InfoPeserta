@@ -20,7 +20,7 @@ final class Flash
     private const KEY = '_flash';
 
     /** Kolom yang tidak pernah disimpan sebagai old input. */
-    private const NEVER_OLD = ['_csrf', 'password', 'password_confirmation', 'current_password', 'new_password'];
+    private const NEVER_OLD = ['_csrf', 'password', 'password_confirmation', 'current_password', 'new_password', 'new_password_confirmation'];
 
     private static ?array $current = null;
 

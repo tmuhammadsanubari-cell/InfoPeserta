@@ -167,6 +167,31 @@
   });
 
   // ---------------------------------------------------------------------
+  // Pengaturan: pilihan warna cepat + kode hex
+  // ---------------------------------------------------------------------
+  var colorInput = document.querySelector('[data-color-input]');
+  if (colorInput) {
+    var colorCode = document.querySelector('[data-color-code]');
+    var swatches = document.querySelectorAll('[data-color-preset]');
+
+    var syncColor = function () {
+      var value = colorInput.value.toLowerCase();
+      if (colorCode) { colorCode.textContent = value.toUpperCase(); }
+      each(swatches, function (s) {
+        s.classList.toggle('is-active', s.getAttribute('data-color-preset') === value);
+      });
+    };
+
+    each(swatches, function (s) {
+      s.addEventListener('click', function () {
+        colorInput.value = s.getAttribute('data-color-preset');
+        syncColor();
+      });
+    });
+    colorInput.addEventListener('input', syncColor);
+  }
+
+  // ---------------------------------------------------------------------
   // Konfirmasi sebelum aksi berbahaya: <button data-confirm="Hapus hari ini?">
   // ---------------------------------------------------------------------
   document.addEventListener('submit', function (event) {
