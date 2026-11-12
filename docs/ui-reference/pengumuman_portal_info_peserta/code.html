@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Jadwal - Portal Info Peserta</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#f7f9fb;color:#191c1e;}body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error-container": "#93000a", "primary-fixed": "#9cf2e8", "inverse-on-surface": "#eff1f3", "on-secondary-fixed-variant": "#005049", "primary-fixed-dim": "#80d5cb", "on-primary-container": "#a3faef", "on-secondary-fixed": "#00201d", "on-surface-variant": "#3e4947", "on-background": "#191c1e", "tertiary": "#485452", "background": "#f7f9fb", "surface-container": "#eceef0", "surface-container-highest": "#e0e3e5", "error": "#ba1a1a", "on-primary": "#ffffff", "surface-tint": "#006a63", "surface-dim": "#d8dadc", "outline-variant": "#bdc9c6", "on-primary-fixed-variant": "#00504a", "on-tertiary-fixed-variant": "#3d4947", "secondary-container": "#86f2e4", "surface-container-high": "#e6e8ea", "inverse-surface": "#2d3133", "on-secondary": "#ffffff", "surface-variant": "#e0e3e5", "surface-bright": "#f7f9fb", "tertiary-fixed": "#d8e5e2", "on-tertiary-container": "#e0edea", "primary": "#005c55", "on-tertiary-fixed": "#121e1c", "secondary-fixed-dim": "#6bd8cb", "on-secondary-container": "#006f66", "on-tertiary": "#ffffff", "tertiary-container": "#606c6a", "on-error": "#ffffff", "primary-container": "#0f766e", "surface-container-low": "#f2f4f6", "on-surface": "#191c1e", "inverse-primary": "#80d5cb", "on-primary-fixed": "#00201d", "surface-container-lowest": "#ffffff", "surface": "#f7f9fb", "tertiary-fixed-dim": "#bcc9c6", "outline": "#6e7977", "error-container": "#ffdad6", "secondary-fixed": "#89f5e7", "secondary": "#006a61" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-lg": "1.5rem", "margin-desktop": "2rem", "margin": "1rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1rem", "space-xl": "2rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "headline-md": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Inter"], "label-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "label-sm": ["Inter"], "label-md": ["Inter"] }, "fontSize": { "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "headline-sm": ["18px", {"lineHeight": "26px", "fontWeight": "600"}], "label-lg": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.025em", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-on-secondary-container"><main class="flex-1 flex flex-col relative w-full max-w-[480px] sm:max-w-[560px] mx-auto bg-surface pb-24"><div class="flex flex-col w-full px-margin pb-6 gap-y-space-md">
+<!-- Top Event & Greeting Strip -->
+<section class="flex flex-col gap-y-space-xs pt-space-xs">
+<div class="flex items-center justify-between gap-x-2">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">offline_pin</span>
+<span class="font-label-sm text-label-sm">Mode Offline Aktif</span>
+</div>
+<button aria-label="Keluar sesi" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant active:bg-surface-container-highest transition-colors min-h-[36px]" type="button">
+<span class="font-label-sm text-label-sm">Keluar</span>
+<span class="material-symbols-outlined text-[16px]">logout</span>
+</button>
+</div>
+<div class="flex flex-col mt-1">
+<div class="flex items-center gap-1.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Halo, Rina 👋</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Family Gathering 2026 • Malang – Batu</p>
+</div>
+</section>
+<!-- Section Header & Message Counter -->
+<section class="flex items-end justify-between gap-2 pt-1">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Pengumuman Penting</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Informasi &amp; pembaruan mendadak dari panitia</p>
+</div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm shrink-0">
+      3 Pesan
+    </span>
+</section>
+<!-- Announcements Stream -->
+<section aria-label="Daftar Pengumuman" class="flex flex-col gap-y-3.5">
+<!-- Card 1: Pinned / Priority -->
+<article class="flex flex-col rounded-xl bg-primary-fixed/20 p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<span>Disematkan • Prioritas Panitia</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<time class="font-label-sm text-label-sm" datetime="2026-12-21T06:10">21 Des, 06.10</time>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Perubahan titik kumpul hari ke-2</h3>
+<p class="font-body-lg text-body-lg text-on-surface mt-1.5 leading-relaxed">
+        Titik kumpul pindah ke lobby belakang hotel karena ada perbaikan jalan di depan.
+      </p>
+<!-- Context Alert Pill inside Card -->
+<div class="flex items-start gap-2 mt-3 p-2.5 rounded-lg bg-surface-container-lowest/80 text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">info</span>
+<span class="font-body-sm text-body-sm">Harap perhatikan sebelum berangkat pukul 08.00</span>
+</div>
+<!-- Author Attribution -->
+<div class="flex items-center justify-between pt-3 mt-1 text-on-surface-variant">
+<span class="font-body-sm text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">badge</span>
+          Panitia Lapangan
+        </span>
+<span class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span>Sudah Dibaca</span>
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</span>
+</div>
+</article>
+<!-- Card 2: Normal Card (Weather & Equipment) -->
+<article class="flex flex-col rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+          Perlengkapan &amp; Cuaca
+        </span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<time class="font-label-sm text-label-sm" datetime="2026-12-20T19:45">20 Des, 19.45</time>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Jangan lupa bawa jaket</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1.5 leading-relaxed">
+        Suhu di Batu malam hari bisa sampai 16°C.
+      </p>
+<div class="flex items-center gap-2 mt-3 pt-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">person</span>
+<span class="font-body-sm text-body-sm">Sie Acara &amp; Logistik</span>
+</div>
+</article>
+<!-- Card 3: Normal Card (General Welcome) -->
+<article class="flex flex-col rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+          Informasi Umum
+        </span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<time class="font-label-sm text-label-sm" datetime="2026-12-18T09:00">18 Des, 09.00</time>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Selamat datang!</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1.5 leading-relaxed">
+        Terima kasih sudah mendaftar. Semua info perjalanan ada di sini.
+      </p>
+<div class="flex items-center gap-2 mt-3 pt-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">diversity_3</span>
+<span class="font-body-sm text-body-sm">Tim Registrasi</span>
+</div>
+</article>
+</section>
+<!-- Offline Cache Assurance Banner -->
+<aside class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-low text-on-surface-variant mt-1">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-[18px]">cloud_done</span>
+</div>
+<p class="font-body-sm text-body-sm leading-snug">
+      Semua pengumuman tetap tersimpan di HP Anda meski tanpa sinyal.
+    </p>
+</aside>
+<!-- Floating Emergency Committee Action Button -->
+<aside class="sticky bottom-2 self-end z-40 mt-2">
+<a aria-label="Hubungi Bantuan Panitia Cepat" class="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-primary-container text-on-primary shadow-lg hover:bg-primary active:scale-95 transition-all min-h-[48px]" href="tel:081234567890" role="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide">Bantuan Panitia</span>
+</a>
+</aside>
+</div>
+<script>
+  (function () {
+    // Dynamic tab state synchronization with host shell navigation
+    const navLinks = document.querySelectorAll('nav a[data-path]');
+    navLinks.forEach(link => {
+      const path = link.getAttribute('data-path');
+      const icon = link.querySelector('.material-symbols-outlined');
+      const label = link.querySelector('span:last-child');
+      
+      if (path === 'pengumuman') {
+        link.className = 'flex flex-col items-center justify-center min-w-[64px] min-h-[44px] text-primary font-label-md transition-colors';
+        if (icon) {
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+        if (label) {
+          label.classList.add('font-semibold');
+        }
+      } else {
+        link.className = 'flex flex-col items-center justify-center min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-primary transition-colors';
+        if (icon) {
+          icon.style.fontVariationSettings = "'FILL' 0";
+        }
+      }
+    });
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.05)]" data-active-classes="text-primary font-label-md"><div class="max-w-[480px] sm:max-w-[560px] mx-auto flex items-center justify-around h-16 px-space-md"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-primary transition-colors" data-path="jadwal" href="#"><span class="material-symbols-outlined text-[24px]">calendar_today</span><span class="font-label-sm text-label-sm mt-0.5">Jadwal</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-primary transition-colors" data-path="pengumuman" href="#"><span class="material-symbols-outlined text-[24px]">campaign</span><span class="font-label-sm text-label-sm mt-0.5">Pengumuman</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-primary transition-colors" data-path="info" href="#"><span class="material-symbols-outlined text-[24px]">info</span><span class="font-label-sm text-label-sm mt-0.5">Info</span></a></div></nav></body></html>

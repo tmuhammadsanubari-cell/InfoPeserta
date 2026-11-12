@@ -1,0 +1,14 @@
+# Dipakai hanya jika document root hosting mengarah ke folder proyek ini (bukan ke public/).
+# PRD: bagian 4.7 langkah 4. Lebih baik arahkan document root langsung ke public/.
+
+Options -Indexes
+
+<FilesMatch "^\.env|\.sql$|\.md$|\.log$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|database|storage|docs)(/|$) - [F,L]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
