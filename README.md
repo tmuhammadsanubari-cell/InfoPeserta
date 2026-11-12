@@ -167,10 +167,10 @@ Saat `APP_ENV=development`, detail error tampil di layar. Saat `production`, pen
 Dari folder proyek (repo git), setelah semua perubahan di-commit:
 
 ```bash
-git archive --format=zip -o portal-info-peserta-$(date +%Y%m%d).zip HEAD -- . ':!docs' ':!CLAUDE.md'
+git -c core.autocrlf=false archive --format=zip -o portal-info-peserta-$(date +%Y%m%d).zip HEAD -- . ':!docs' ':!CLAUDE.md'
 ```
 
-Zip hanya berisi file yang tercatat di git, jadi `.env` dan log tidak ikut. Folder `docs/` dan `CLAUDE.md` tidak dibutuhkan di server.
+Zip hanya berisi file yang tercatat di git, jadi `.env` dan log tidak ikut. `core.autocrlf=false` menjaga akhir baris tetap LF (format Linux di server), walau zip dibuat di Windows. Folder `docs/` dan `CLAUDE.md` tidak dibutuhkan di server.
 
 ## Struktur folder
 
